@@ -34,7 +34,7 @@ const HomeScreen = () => {
   const [backendData, setBackendData] = useState({});
   const [ans, setAns] = useState("NULL");
   const [loading, setLoading] = useState(false);
-  const [welcome, setWelcome] = useState(false);
+  const [welcome, setWelcome] = useState(true);
   const [retriveData, setRetirveData] = useState(null);
 
   const handleOnSubmit = () => {
@@ -167,7 +167,6 @@ const HomeScreen = () => {
   }, [backendData]);
 
   useEffect(() => {
-    setWelcome(true);
     setTimeout(() => {
       setWelcome(false);
     }, 3000);
@@ -175,7 +174,7 @@ const HomeScreen = () => {
 
   return (
     <>
-      {/* {welcome && <LoadingScreen />} */}
+      {welcome && <LoadingScreen />}
       <ImageBackground
         source={require(`../assets/bg${1}.jpeg`)}
         resizeMode="cover"

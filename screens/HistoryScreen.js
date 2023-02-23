@@ -80,22 +80,16 @@ const HistoryScreen = () => {
           />
           <Text className="text-gray-400">Home</Text>
         </TouchableOpacity>
-        <View>
-          <ScrollView
-            // stickyHeaderIndices={[1]}
-            showsVerticalScrollIndicator={false}
-            style={styles.table}
-            className="pt-4"
-          >
-            <View style={styles.header}>
-              <RowComponent
-                val1="Number"
-                val2="Base"
-                val3="Conver"
-                val4="Value"
-              />
-            </View>
-
+        <View className="pt-4">
+          <View style={styles.header} className="bg-gray-600 rounded-lg">
+            <RowComponent
+              val1="Number"
+              val2="Base"
+              val3="Conver"
+              val4="Value"
+            />
+          </View>
+          <ScrollView showsVerticalScrollIndicator={false} style={styles.table}>
             <View style={styles.content}>
               {historyData !== null &&
                 refArr.map((data, index) => {
@@ -125,10 +119,10 @@ const HistoryScreen = () => {
 export default HistoryScreen;
 
 const styles = StyleSheet.create({
-  header: { position: "sticky" },
-  content: { marginBottom: 50 },
+  header: {},
+  content: { marginBottom: 40 },
   table: {
-    height: dimensions.height - 120,
+    height: dimensions.height - 180,
     textAlign: "center",
   },
   image: {
@@ -136,7 +130,7 @@ const styles = StyleSheet.create({
   },
 
   clearBtn: {
-    marginTop: 5,
+    marginTop: 15,
     width: 100,
     alignItems: "center",
     marginLeft: "auto",
