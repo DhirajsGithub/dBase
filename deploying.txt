@@ -8,6 +8,20 @@ $ expo publish
 you app will be visible on expo site
 
 
+building the apk version of your app
+
+
+
 building the sdk version of your app with eas build
 https://docs.expo.dev/build/setup/
-$ npm install -g eas-cli
+make sure you are in home directory
+$ sudo npm install -g eas-cli
+$ eas login
+with your expo credentials
+$ eas build:configure
+$ eas build --platform android
+or 
+$ eas build --platform all
+
+it will generate .aab version of your app which is supported in play store 
+to convert .aab to .apk folllow along this video https://www.youtube.com/watch?v=mVSUL5VZBow
