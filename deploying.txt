@@ -1,0 +1,13 @@
+deploy your app to expo as first install expo cli 
+$ sudo npm install -g expo-cli
+create an account on expo
+then 
+$expo login
+then
+$ expo publish
+you app will be visible on expo site
+
+
+building the sdk version of your app with eas build
+https://docs.expo.dev/build/setup/
+$ npm install -g eas-cli

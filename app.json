@@ -1,14 +1,14 @@
 {
   "expo": {
     "name": "DBase",
-    "slug": "dBase",
+    "slug": "DBase",
     "description": "The Base Converter app dBase allows you to quickly and easily convert any number from one base to another. Simply enter the number you want to convert, along with its current base and the target base, and the app will instantly calculate the equivalent number in the new base. Whether you're a student studying computer science or mathematics, or just need to convert numbers for work or personal use, this app is the perfect tool for the job. With a user-friendly interface and fast, accurate conversions, the Base Converter app is a must-have for anyone who needs to convert numbers between different bases." ,
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/starting.gif",
+      "image": "./assets/splash.png",
       "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
@@ -19,9 +19,13 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.dApps.dbase",
+      "buildNumber": "1.0.0"
     },
     "android": {
+      "package": "com.dApps.dbase",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#FFFFFF"
