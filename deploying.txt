@@ -24,3 +24,4 @@ $ eas build --platform all
 it will generate .aab version of your app which is supported in play store 
 
 building the apk version of your app
+https://docs.expo.dev/build-reference/apk/
