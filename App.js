@@ -9,18 +9,21 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          gestureEnabled: true,
-          transitionSpecs: "left",
-          gestureDirection: "horizontal",
-        }}
-      >
-        <Stack.Screen name="home" component={HomeScreen} />
-        <Stack.Screen name="history" component={HistoryScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <>
+      <StatusBar styles="light" />
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            gestureEnabled: true,
+            transitionSpecs: "left",
+            gestureDirection: "horizontal",
+          }}
+        >
+          <Stack.Screen name="home" component={HomeScreen} />
+          <Stack.Screen name="history" component={HistoryScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </>
   );
 }
 

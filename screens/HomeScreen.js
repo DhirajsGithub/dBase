@@ -24,6 +24,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Button } from "@rneui/base";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import LoadingScreen from "../Components/LoadingScreen";
+import { StatusBar } from "expo-status-bar";
 const dimension = Dimensions.get("window");
 
 const HomeScreen = () => {
@@ -38,12 +39,12 @@ const HomeScreen = () => {
   const [retriveData, setRetirveData] = useState(null);
 
   const handleOnSubmit = () => {
+    setAns("NULL");
     let newNum = "";
     for (let n of number) {
       newNum += n.toUpperCase();
     }
     setNumber(newNum);
-    console.log(number);
     if (number.length === 0 || baseVal === null || convertVal === null) {
       alert("Fill out all the Fields !!! 👊");
       return;
@@ -104,13 +105,13 @@ const HomeScreen = () => {
     retriveData = JSON.parse(retriveData);
     // will override the data
     let numbers = retriveData?.numbers;
-    numbers?.push(number);
+    numbers?.unshift(number);
     let bases = retriveData?.bases;
-    bases?.push(baseVal);
+    bases?.unshift(baseVal);
     let converts = retriveData?.converts;
-    converts?.push(convertVal);
+    converts?.unshift(convertVal);
     let answers = retriveData?.answers;
-    answers?.push(answer);
+    answers?.unshift(answer);
     let newData = {
       numbers,
       bases,
@@ -123,7 +124,6 @@ const HomeScreen = () => {
   const asyncRetriveData = async () => {
     let data = await AsyncStorage.getItem("data");
     setRetirveData(data);
-    console.log(data);
     return data;
   };
 
@@ -133,15 +133,12 @@ const HomeScreen = () => {
         (response) => {
           response.json().then(async (data) => {
             let fetchedData = await asyncRetriveData();
-            console.log(fetchedData);
             if (typeof data === "string") {
               setTimeout(() => setAns(data), 1000);
               if (fetchedData === null) {
                 setAsyncStorage(data);
-                console.log("setting...");
               } else {
                 updateAsyncStorage(data);
-                console.log("updating...");
               }
 
               return data;
@@ -174,6 +171,7 @@ const HomeScreen = () => {
 
   return (
     <>
+      <StatusBar style="light" />
       {welcome && <LoadingScreen />}
       <ImageBackground
         source={require(`../assets/bg${1}.jpeg`)}
